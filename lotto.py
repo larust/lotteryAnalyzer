@@ -12,8 +12,6 @@ def lotteryProfit(lastWin, addWin):
     balls=5
     NsplitMax=21
 
-#  [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
-
     #Number of possible winners
     Nsplit=np.arange(0,NsplitMax)
     
@@ -47,8 +45,7 @@ def lotteryProfitMat(lastWin, addWin):
     balls=5
     NsplitMax=21
     
-
-   [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
+    [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
     
     #Probability of winning
     Ncomb=comb(numbers,balls)
@@ -62,7 +59,10 @@ def lotteryProfitMat(lastWin, addWin):
     Nsplit=np.arange(0,NsplitMax)
     [x, lamb]= np.meshgrid(Nsplit, N*pWin)
     p=np.atleast_3d(poisson.pmf(x, lamb))
-    p=np.transpose(p,(2, 0, 1))
+    x=np.atleast_3d(x)
+    p=np.tile(np.transpose(p,(0,2,1)),(1, len(lastWin),1))
+    x=np.tile(np.transpose(x,(0,2,1)),(1, len(lastWin),1))
+
     lastWinMat=np.atleast_3d(lastWinMat)
     addWinMat=np.atleast_3d(addWinMat)
 
@@ -71,7 +71,7 @@ def lotteryProfitMat(lastWin, addWin):
     myWinMat=np.tile(myWin,(1,1,NsplitMax))
     #myWin=lastWin+addWin+costAll*rPay*rFP
     smallerWin=(1.-rFP)*rPay*costAll
-    weightedWin=np.sum(p/(Nsplit+1.)*myWin)
+    weightedWin=np.sum(p/(Nsplit+1.)*myWin,axis=2)
     totWin=weightedWin+smallerWin
     profit=totWin-costAll
     rprof=profit/costAll
