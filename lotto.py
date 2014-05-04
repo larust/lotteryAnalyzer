@@ -1,30 +1,40 @@
-"""example.py
-
-Compute the maximum of a Bessel function and plot it.
-
-"""
-import argparse
-
 import numpy as np
-from scipy import special, optimize
+from scipy.stats import poisson
+from scipy.misc import comb
 import matplotlib.pyplot as plt
 
-def main():
-    # Parse command-line arguments
-    parser = argparse.ArgumentParser(usage=__doc__)
-    parser.add_argument("--order", type=int, default=3, help="order of Bessel function")
-    parser.add_argument("--output", default="plot.png", help="output image file")
-    args = parser.parse_args()
+def lotteryProfit(lastWin, addWin):
+    #Icelandic lottery param
+    tPrice=130
+    rPay=0.45
+    rFP=0.57
+    numbers=40
+    balls=5
+    NsplitMax=21
 
+#   [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
+
+    #Number of possible winners
+    Nsplit=np.arange(0,NsplitMax)
     
-    s = np.random.poisson(5, 10000)
+    #Probability of winning
+    Ncomb=comb(numbers,balls)
+    pWin=1./Ncomb
 
-    # Plot
-    x = np.linspace(0, 10, 5000)
-    plt.plot(x, special.jv(args.order, x), '-', sol.x, -sol.fun, 'o')
+    #Number of rows bought
+    N=addWin/(rPay*rFP*tPrice)
 
-    # Produce output
-    plt.savefig(args.output, dpi=96)
+    #Probability of splitting the jackpot
+    p=poisson.pmf(Nsplit, pWin*N)
 
-if __name__ == "__main__":
-    main()
+    #ROI of buying all possible rows
+    costAll=Ncomb*tPrice
+    myWin=lastWin+addWin+costAll*rPay*rFP
+    smallerWin=(1.-rFP)*rPay*costAll
+    weightedWin=np.sum(p/(Nsplit+1.)*myWin)
+    totWin=weightedWin+smallerWin
+    profit=totWin-costAll
+    rprof=profit/costAll
+    return rprof
+
+
