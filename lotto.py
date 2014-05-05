@@ -5,14 +5,17 @@ import matplotlib.pyplot as plt
 
 def lotteryROI(lastWin, addWin):
     #Icelandic lottery param
+    #Price of each ticket
     tPrice=130
+    #Payout of the lottery
     rPay=0.45
-    rFP=0.57
+    #Percentage of payout contibuting to the jackpot
+    rFP=0.57 
     numbers=40
     balls=5
     NsplitMax=21
 
-    #Make sure input is a numpy array
+    #Make sure input is 1d numpy arrays
     lastWin=np.atleast_1d(lastWin)
     addWin=np.atleast_1d(addWin)
     
@@ -37,15 +40,26 @@ def lotteryROI(lastWin, addWin):
     lastWinMat=np.atleast_3d(lastWinMat)
     addWinMat=np.atleast_3d(addWinMat)
 
-    #ROI of buying all possible rows
+    #ROI of buying all possible tickets
     myWin=lastWinMat+addWinMat+costAll*rPay*rFP
     myWinMat=np.tile(myWin,(1,1,NsplitMax))
-    #myWin=lastWin+addWin+costAll*rPay*rFP
     smallerWin=(1.-rFP)*rPay*costAll
     weightedWin=np.sum(p/(Nsplit+1.)*myWin,axis=2)
     totWin=weightedWin+smallerWin
     profit=totWin-costAll
     rprof=profit/costAll
     return rprof
+
+def plotROIFig(lastWin, addWin):
+    rMat=lotteryROI(lastWin, addWin)
+    rMat=rMat*100
+    levels=np.arange(np.around(np.min(rMat),-1),np.around(np.max(rMat),-1),10)
+    CS=plt.contour(lastWin,addWin,rMat,levels)
+    plt.clabel(CS, inline=1, fontsize=16, colors='k', fmt='%2.0f')
+    plt.xlabel('Size of previous jackpot')
+    plt.ylabel('Size of current jackpot')
+    plt.title('Weighted return on investment')
+    plt.savefig('roi.svg')
+
 
 
