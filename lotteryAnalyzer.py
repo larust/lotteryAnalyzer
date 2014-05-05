@@ -55,7 +55,7 @@ def plotROIFig(lastWin, addWin):
     rMat=rMat*100
     levels=np.arange(np.around(np.min(rMat),-1),np.around(np.max(rMat),-1),10)
     CS=plt.contour(lastWin,addWin,rMat,levels)
-    plt.clabel(CS, inline=1, fontsize=16, colors='k', fmt='%2.0f')
+    plt.clabel(CS, inline=2, fontsize=16, colors='k', fmt='%2.0f')
     plt.xlabel('Size of previous jackpot')
     plt.ylabel('Size of current jackpot')
     plt.title('Weighted return on investment')
