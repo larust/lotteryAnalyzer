@@ -1,9 +1,13 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
 import numpy as np
 from scipy.stats import poisson
 from scipy.misc import comb
+from scipy.optimize import brentq
 import matplotlib.pyplot as plt
 
-def lotteryROI(lastWin, addWin):
+def lotteryROI(lastWin, curWin):
+    addWin=curWin-lastWin
     #Icelandic lottery param
     #Price of each ticket
     tPrice=130
@@ -19,13 +23,11 @@ def lotteryROI(lastWin, addWin):
     lastWin=np.atleast_1d(lastWin)
     addWin=np.atleast_1d(addWin)
     
-    [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
-    
     #Probability of winning
     Ncomb=comb(numbers,balls)
     pWin=1./Ncomb
 
-    #Cost of buying all rows
+    #Cost of buying all tickets
     N=addWin/(rPay*rFP*tPrice)
     costAll=Ncomb*tPrice
 
@@ -37,10 +39,10 @@ def lotteryROI(lastWin, addWin):
     p=np.tile(np.transpose(p,(0,2,1)),(1, len(lastWin),1))
     x=np.tile(np.transpose(x,(0,2,1)),(1, len(lastWin),1))
 
+    #Calculate the return on investment (ROI)
+    [lastWinMat, addWinMat]=np.meshgrid(lastWin, addWin)
     lastWinMat=np.atleast_3d(lastWinMat)
     addWinMat=np.atleast_3d(addWinMat)
-
-    #ROI of buying all possible tickets
     myWin=lastWinMat+addWinMat+costAll*rPay*rFP
     myWinMat=np.tile(myWin,(1,1,NsplitMax))
     smallerWin=(1.-rFP)*rPay*costAll
@@ -49,6 +51,15 @@ def lotteryROI(lastWin, addWin):
     profit=totWin-costAll
     rprof=profit/costAll
     return rprof
+
+def breakEven(lastWin, curWin0, curWin1):
+
+    #Find ROI as a function of amount added to the jackpot
+    f = lambda x: lotteryROI(lastWin, x)[0][0]
+
+    #Find root
+    curWinBE = brentq(f, curWin0, curWin1)
+    return curWinBE
 
 def plotROIFig(lastWin, addWin):
     rMat=lotteryROI(lastWin, addWin)
@@ -60,6 +71,4 @@ def plotROIFig(lastWin, addWin):
     plt.ylabel('Size of current jackpot')
     plt.title('Weighted return on investment')
     plt.savefig('roi.svg')
-
-
 
