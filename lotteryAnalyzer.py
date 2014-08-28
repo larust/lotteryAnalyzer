@@ -62,7 +62,7 @@ def breakEven(lastWin, curWin0, curWin1):
     return curWinBE
 
 def plotROIFig(lastWin, addWin):
-    rMat=lotteryROI(lastWin, addWin)
+    rMat=lotteryROI(lastWin, lastWin+addWin)
     rMat=rMat*100
     levels=np.arange(np.around(np.min(rMat),-1),np.around(np.max(rMat),-1),10)
     CS=plt.contour(lastWin,addWin,rMat,levels)
