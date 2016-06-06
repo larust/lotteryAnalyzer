@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 import numpy as np
 from scipy.stats import poisson
@@ -6,8 +6,8 @@ from scipy.misc import comb
 from scipy.optimize import brentq
 import matplotlib.pyplot as plt
 
-def lotteryROI(lastWin, curWin):
-    addWin=curWin-lastWin
+def lotteryROI(lastWin, addWin):
+    #addWin=curWin-lastWin
     #Icelandic lottery param
     #Price of each ticket
     tPrice=130
@@ -62,7 +62,7 @@ def breakEven(lastWin, curWin0, curWin1):
     return curWinBE
 
 def plotROIFig(lastWin, addWin):
-    rMat=lotteryROI(lastWin, lastWin+addWin)
+    rMat=lotteryROI(lastWin, addWin)
     rMat=rMat*100
     levels=np.arange(np.around(np.min(rMat),-1),np.around(np.max(rMat),-1),10)
     CS=plt.contour(lastWin,addWin,rMat,levels)
@@ -70,5 +70,5 @@ def plotROIFig(lastWin, addWin):
     plt.xlabel('Size of previous jackpot')
     plt.ylabel('Size of current jackpot')
     plt.title('Weighted return on investment')
-    plt.savefig('roi.svg')
+    #plt.savefig('roi.svg')
 
