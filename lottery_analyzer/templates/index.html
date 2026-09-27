@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ rules.name | is_label }}</h2>
+<p>Reiknaðu vænta ávöxtun ef þú kaupir allar mögulegar talnaraðir einu sinni.</p>
+<p>{{ rules.combinations | is_number }} raðir á {{ rules.row_price | is_number(2) }}
+  hver kosta samtals <strong>{{ rules.coverage_cost | is_number(2) }}</strong>.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form action="{{ url_for('calculate') }}" method="post">
+  <label for="other_rows">Fjöldi raða sem aðrir spilarar kaupa</label>
+  <input id="other_rows" name="other_rows" type="number" min="0" step="any" required
+    value="{{ values.get('other_rows', '500000') }}">
+  {% for tier in rules.tiers if tier.can_roll_over %}
+  <label for="rollover_{{ tier.key }}">{{ tier.label | is_label }} — yfirfærð vinningsupphæð</label>
+  <input id="rollover_{{ tier.key }}" name="rollover_{{ tier.key }}" type="number"
+    min="0" step="any" required value="{{ values.get('rollover_' ~ tier.key, '0') }}">
+  {% endfor %}
+  <label for="distribution">Líkan fyrir fjölda annarra vinningsraða</label>
+  <select id="distribution" name="distribution">
+    <option value="poisson" {% if values.get('distribution') != 'binomial' %}selected{% endif %}>
+      Poisson-nálgun (fjöldi raða má vera áætlaður)</option>
+    <option value="binomial" {% if values.get('distribution') == 'binomial' %}selected{% endif %}>
+      Tvíkostadreifing (fjöldi raða verður að vera heiltala)</option>
+  </select>
+  <p>Yfirfærð upphæð er vinningspottur frá fyrri útdrætti þar sem engin röð vann í viðkomandi flokki.
+    Þínum nýju röðum er sjálfkrafa bætt við útreikninginn.</p>
+  <button type="submit">Reikna vænta ávöxtun</button>
+</form>
+<p class="note">Gert er ráð fyrir að aðrir spilarar velji raðir óháð hver öðrum og að allar
+  mögulegar raðir séu jafn líklegar til að verða fyrir valinu. Ekki er gert ráð fyrir sérstöku
+  viðbótarfé í vinninga. Allar fjárhæðir eru í gjaldmiðli leiksins (krónum fyrir íslenskt Lottó).</p>
+{% endblock %}

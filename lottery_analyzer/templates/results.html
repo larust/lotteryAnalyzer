@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Vænt ávöxtun — {{ result.rules.name | is_label }}</h2>
+<dl>
+  <dt>Kostnaður við allar raðir</dt><dd>{{ result.cost | is_number(2) }}</dd>
+  <dt>Væntir vinningar</dt><dd>{{ result.expected_winnings | is_number(2) }}</dd>
+  <dt>Væntur hagnaður</dt><dd>{{ result.expected_profit | is_number(2) }}</dd>
+  <dt>Vænt ávöxtun</dt><dd>{{ result.roi | is_percent }}</dd>
+  <dt>Fjöldi raða annarra spilara</dt><dd>{{ result.other_rows | is_number(2) }}</dd>
+</dl>
+<div class="table-container">
+  <table>
+    <caption>Vinningspottar innihalda þín kaup og yfirfærðar upphæðir</caption>
+    <thead><tr><th>Vinningsflokkur</th><th>Þínar vinningsraðir</th><th>Heildarpottur</th>
+      <th>Vænt útborgun</th></tr></thead>
+    <tbody>
+      {% for tier in result.tiers %}
+      <tr><th scope="row">{{ tier.label | is_label }}</th>
+        <td>{{ tier.winning_rows | is_number }}</td>
+        <td>{{ tier.pool | is_number(2) }}</td>
+        <td>{{ tier.expected_winnings | is_number(2) }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="note">Notuð er {{ 'Poisson-nálgun' if result.distribution == 'poisson' else 'tvíkostadreifing' }}.
+  Gert er ráð fyrir óháðu vali annarra spilara og jöfnum líkum á vali hverrar raðar.
+  {% if result.rules.rounding_unit %}
+  Vinningur á hverja röð er námundaður niður að næsta margfeldi af
+  {{ result.rules.rounding_unit | is_number(2) }}.
+  {% else %}Vinningar eru ekki námundaðir í þessum útreikningi.{% endif %}
+  Allar fjárhæðir eru í gjaldmiðli leiksins (krónum fyrir íslenskt Lottó).
+  Þetta er væntigildi en ekki tryggður hagnaður. Annar kaup- eða fjármögnunarkostnaður en
+  verð raðanna er ekki innifalinn.</p>
+<a href="{{ url_for('index') }}">Reikna annað dæmi</a>
+{% endblock %}

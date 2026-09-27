@@ -1,16 +1,8 @@
-from flask import Flask
-from flask import render_template
-from flask import request
+"""Compatibility Flask entry point: python app.py or flask --app app run."""
 
-app = Flask(__name__)
+from lottery_analyzer.web import create_app
 
-@app.route("/")
-def index():
-    return render_template('index.html')
-
-@app.route("/calculate", methods=['POST'])
-def calculate(calculated_value = None):
-	return render_template('results.html', calculated_value=request.form['rass'])
+app = create_app()
 
 if __name__ == "__main__":
     app.run()

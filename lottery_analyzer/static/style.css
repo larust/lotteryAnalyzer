@@ -1,0 +1,17 @@
+body { margin: 0; background: #f4f6f8; color: #182737; font: 1rem/1.6 system-ui, sans-serif; }
+main { max-width: 58rem; margin: 2rem auto; padding: 2rem; background: white; border-radius: 1rem; }
+h1, h2 { line-height: 1.2; }
+form { max-width: 36rem; }
+label { display: block; margin-top: 1.2rem; font-weight: 600; }
+input, select, button { box-sizing: border-box; width: 100%; padding: .75rem; font: inherit; }
+button { margin-top: 1rem; border: 0; border-radius: .4rem; background: #175d83; color: white; cursor: pointer; }
+.error { color: #9d1720; padding: 1rem; background: #fff0f0; }
+.note, caption { color: #526170; }
+dt { font-weight: 600; }
+dd { margin: 0 0 1rem; }
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .7rem; text-align: right; border-bottom: 1px solid #d7e0e6; }
+th:first-child { text-align: left; }
+a { color: #175d83; }
+@media (max-width: 40rem) { main { margin: 0; padding: 1.2rem; border-radius: 0; } }
