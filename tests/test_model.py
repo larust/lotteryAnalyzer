@@ -159,7 +159,8 @@ def test_grid_orientation_and_legacy_adapters():
         ).roi
     )
     assert np.array_equal(lotteryROI([0, 10, 20], [0, 1], rules=rules), grid)
-    contribution = breakEven(100, 0, 1000, rules=rules)
+    contribution = breakEven(100, 0, 1000, rules=rules, money_tolerance=1e-6)
+    assert lotteryROI(100, contribution, rules=rules)[0, 0] >= 0
     assert lotteryROI(100, contribution, rules=rules)[0, 0] == pytest.approx(0, abs=1e-5)
 
 

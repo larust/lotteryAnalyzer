@@ -14,4 +14,6 @@ table { width: 100%; border-collapse: collapse; }
 th, td { padding: .7rem; text-align: right; border-bottom: 1px solid #d7e0e6; }
 th:first-child { text-align: left; }
 a { color: #175d83; }
+input[type="checkbox"] { width: auto; margin-right: .5rem; }
+fieldset { margin-top: 1.5rem; border: 1px solid #d7e0e6; border-radius: .4rem; }
 @media (max-width: 40rem) { main { margin: 0; padding: 1.2rem; border-radius: 0; } }

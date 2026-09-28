@@ -2,8 +2,10 @@
 
 from flask import Flask, render_template, request
 
+from .defaults import LOTTO_IS_SNAPSHOT
 from .model import analyze
 from .rules import ICELANDIC_LOTTO, LotteryRules, nonnegative
+from .uncertainty import SalesScenario, analyze_sales_uncertainty
 
 _LABELS = {
     "Icelandic Lottó 5/45": "Íslenskt Lottó 5/45",
@@ -30,6 +32,12 @@ def _form_number(value: str, label: str) -> float:
 
 def create_app(rules: LotteryRules = ICELANDIC_LOTTO) -> Flask:
     app = Flask(__name__)
+    snapshot = LOTTO_IS_SNAPSHOT if rules == ICELANDIC_LOTTO else None
+
+    @app.context_processor
+    def source_context():
+        return {"lotto_snapshot": snapshot}
+
     app.jinja_env.filters["is_label"] = lambda label: _LABELS.get(label, label)
     app.jinja_env.filters["is_number"] = format_number
     app.jinja_env.filters["is_percent"] = lambda value: (
@@ -38,7 +46,9 @@ def create_app(rules: LotteryRules = ICELANDIC_LOTTO) -> Flask:
 
     @app.get("/")
     def index():
-        return render_template("index.html", rules=rules, values={})
+        return render_template(
+            "index.html", rules=rules, values=snapshot.form_values() if snapshot else {}
+        )
 
     @app.post("/calculate")
     def calculate():
@@ -62,15 +72,37 @@ def create_app(rules: LotteryRules = ICELANDIC_LOTTO) -> Flask:
                 )
             if other_rows > 2**53 - 1:
                 raise ValueError("Fjöldi raða er of mikill fyrir útreikninginn.")
+            uncertain = values.get("sales_uncertainty") == "on"
+            spread = 0.0
+            if uncertain:
+                spread = _form_number(values.get("sales_spread", "20"), "Frávik í sölu") / 100
+                if spread > 1:
+                    raise ValueError("Frávik í sölu má ekki vera meira en 100 %.")
         except ValueError as exc:
             return render_template("index.html", rules=rules, values=values, error=str(exc)), 400
         try:
-            result = analyze(
-                other_rows=other_rows,
-                rollovers=rollovers,
-                rules=rules,
-                distribution=distribution,
-            )
+            uncertainty = None
+            if uncertain:
+                counts = [other_rows * (1 - spread), other_rows, other_rows * (1 + spread)]
+                if distribution == "binomial":
+                    counts = [round(count) for count in counts]
+                uncertainty = analyze_sales_uncertainty(
+                    [
+                        SalesScenario(count, weight)
+                        for count, weight in zip(counts, (0.25, 0.5, 0.25), strict=True)
+                    ],
+                    rollovers=rollovers,
+                    rules=rules,
+                    distribution=distribution,
+                )
+                result = uncertainty.average
+            else:
+                result = analyze(
+                    other_rows=other_rows,
+                    rollovers=rollovers,
+                    rules=rules,
+                    distribution=distribution,
+                )
         except (ValueError, OverflowError):
             return render_template(
                 "index.html",
@@ -81,6 +113,6 @@ def create_app(rules: LotteryRules = ICELANDIC_LOTTO) -> Flask:
                     "Prófaðu lægri upphæðir eða færri raðir."
                 ),
             ), 400
-        return render_template("results.html", result=result)
+        return render_template("results.html", result=result, uncertainty=uncertainty)
 
     return app

@@ -4,9 +4,7 @@ Names and grid orientation are retained; defaults now use current rules and
 corrected per-tier payouts. Historical numerical outputs are not preserved.
 """
 
-from scipy.optimize import brentq
-
-from lottery_analyzer import ICELANDIC_LOTTO, roi_grid
+from lottery_analyzer import ICELANDIC_LOTTO, break_even_contribution, roi_grid
 from lottery_analyzer.rules import nonnegative
 
 
@@ -15,25 +13,26 @@ def lotteryROI(lastWin, addWin, *, rules=ICELANDIC_LOTTO):
     return roi_grid(lastWin, addWin, rules=rules)
 
 
-def breakEven(lastWin, curWin0, curWin1, *, rules=ICELANDIC_LOTTO):
-    """Find a break-even *added contribution*, with fixed scalar rollover.
+def breakEven(
+    lastWin,
+    curWin0,
+    curWin1,
+    *,
+    rules=ICELANDIC_LOTTO,
+    money_tolerance=0.01,
+    full_output=False,
+):
+    """Find a profit crossing in *added contribution*, at fixed scalar rollover.
 
-    With payout rounding this is a numerical crossing, not necessarily an exact
-    zero. Prefer lottery_analyzer.break_even_rollover for a profitable threshold
-    at fixed competing sales.
+    Returns the evaluated profitable endpoint, preserving the scalar interface.
+    full_output=True returns both endpoints and their profits. Rounded payouts
+    need not have an exact zero; the result brackets one local crossing.
     """
     rollover = nonnegative(lastWin, "lastWin")
-    low = nonnegative(curWin0, "curWin0")
-    high = nonnegative(curWin1, "curWin1")
-    if low >= high:
-        raise ValueError("Contribution bounds must be increasing.")
-
-    def roi(contribution):
-        return float(lotteryROI(rollover, contribution, rules=rules)[0, 0])
-
-    if roi(low) * roi(high) > 0:
-        raise ValueError("Contribution bounds must bracket a break-even crossing.")
-    return brentq(roi, low, high, xtol=0.01)
+    result = break_even_contribution(
+        rollover, (curWin0, curWin1), rules=rules, money_tolerance=money_tolerance
+    )
+    return result if full_output else result.profitable_value
 
 
 def plotROIFig(lastWin, addWin, *, rules=ICELANDIC_LOTTO):
