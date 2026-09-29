@@ -1,16 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Vænt ávöxtun — {{ result.rules.name | is_label }}</h2>
+{% if uncertainty %}
+<p>Niðurstöðurnar eru vegið meðaltal sviðsmynda um sölu. Vinningapottar og samkeppni
+  um vinninga eru reiknuð sérstaklega fyrir hverja sviðsmynd.</p>
+<div class="table-container"><table>
+  <caption>Sviðsmyndir um sölu</caption>
+  <thead><tr><th>Raðir annarra spilara</th><th>Vægi</th><th>Væntur hagnaður</th>
+    <th>Vænt ávöxtun</th></tr></thead>
+  <tbody>{% for scenario in uncertainty.scenarios %}
+    <tr><td>{{ scenario.analysis.other_rows | is_number(2) }}</td>
+      <td>{{ (scenario.probability * 100) | is_number }} %</td>
+      <td>{{ scenario.analysis.expected_profit | is_number(2) }}</td>
+      <td>{{ scenario.analysis.roi | is_percent }}</td></tr>
+  {% endfor %}</tbody>
+</table></div>
+<p class="note">Þetta lýsir óvissu um sölu. Taflan sýnir ekki líkur á hagnaði eða tapi í
+  einstökum útdrætti. Yfirfærðar upphæðir eru þær sömu í öllum sviðsmyndum.</p>
+{% endif %}
 <dl>
   <dt>Kostnaður við allar raðir</dt><dd>{{ result.cost | is_number(2) }}</dd>
   <dt>Væntir vinningar</dt><dd>{{ result.expected_winnings | is_number(2) }}</dd>
   <dt>Væntur hagnaður</dt><dd>{{ result.expected_profit | is_number(2) }}</dd>
   <dt>Vænt ávöxtun</dt><dd>{{ result.roi | is_percent }}</dd>
-  <dt>Fjöldi raða annarra spilara</dt><dd>{{ result.other_rows | is_number(2) }}</dd>
+  <dt>{% if uncertainty %}Veginn meðalfjöldi{% else %}Fjöldi{% endif %} raða annarra spilara</dt>
+  <dd>{{ result.other_rows | is_number(2) }}</dd>
 </dl>
 <div class="table-container">
   <table>
-    <caption>Vinningspottar innihalda þín kaup og yfirfærðar upphæðir</caption>
+    <caption>{% if uncertainty %}Vegið meðaltal eftir vinningsflokkum.
+      {% endif %}Vinningspottar innihalda þín kaup og yfirfærðar upphæðir</caption>
     <thead><tr><th>Vinningsflokkur</th><th>Þínar vinningsraðir</th><th>Heildarpottur</th>
       <th>Vænt útborgun</th></tr></thead>
     <tbody>

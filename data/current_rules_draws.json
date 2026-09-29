@@ -1,0 +1,2216 @@
+{
+  "observed_on": "2026-09-28",
+  "rules_effective_from": "2025-05-18",
+  "provenance": "Public results endpoint used by lotto.is result pages; dates and category order verified. Winning rows are not unique players. Zero-winner amounts are displayed unwon pools.",
+  "tier_order": [
+    "jackpot",
+    "four_bonus",
+    "four",
+    "three_bonus",
+    "three",
+    "two_bonus"
+  ],
+  "draws": [
+    {
+      "date": "2025-05-24",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=21",
+      "winners": [
+        0,
+        2,
+        50,
+        116,
+        1888,
+        2217
+      ],
+      "amounts": [
+        35513920,
+        517460,
+        52160,
+        8990,
+        2340,
+        1170
+      ],
+      "numbers": [
+        17,
+        21,
+        29,
+        38,
+        45
+      ],
+      "bonus_numbers": [
+        25
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=21"
+    },
+    {
+      "date": "2025-05-31",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=22",
+      "winners": [
+        1,
+        3,
+        93,
+        167,
+        3020,
+        3494
+      ],
+      "amounts": [
+        54517800,
+        222260,
+        35840,
+        7980,
+        1870,
+        950
+      ],
+      "numbers": [
+        7,
+        20,
+        25,
+        32,
+        37
+      ],
+      "bonus_numbers": [
+        13
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=22"
+    },
+    {
+      "date": "2025-06-07",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=23",
+      "winners": [
+        0,
+        2,
+        39,
+        70,
+        1637,
+        1435
+      ],
+      "amounts": [
+        9767070,
+        171350,
+        43930,
+        9790,
+        1770,
+        1190
+      ],
+      "numbers": [
+        1,
+        21,
+        23,
+        32,
+        35
+      ],
+      "bonus_numbers": [
+        34
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=23"
+    },
+    {
+      "date": "2025-06-14",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=24",
+      "winners": [
+        0,
+        3,
+        51,
+        94,
+        2063,
+        1666
+      ],
+      "amounts": [
+        21068250,
+        132170,
+        38870,
+        8430,
+        1630,
+        1190
+      ],
+      "numbers": [
+        5,
+        8,
+        20,
+        29,
+        39
+      ],
+      "bonus_numbers": [
+        38
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=24"
+    },
+    {
+      "date": "2025-06-21",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=25",
+      "winners": [
+        0,
+        4,
+        80,
+        198,
+        3046,
+        3145
+      ],
+      "amounts": [
+        35611220,
+        127560,
+        31890,
+        5150,
+        1420,
+        810
+      ],
+      "numbers": [
+        9,
+        10,
+        12,
+        26,
+        30
+      ],
+      "bonus_numbers": [
+        1
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=25"
+    },
+    {
+      "date": "2025-06-28",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=26",
+      "winners": [
+        1,
+        5,
+        119,
+        256,
+        3908,
+        3704
+      ],
+      "amounts": [
+        53804740,
+        127670,
+        26820,
+        4980,
+        1380,
+        860
+      ],
+      "numbers": [
+        4,
+        8,
+        11,
+        13,
+        30
+      ],
+      "bonus_numbers": [
+        16
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=26"
+    },
+    {
+      "date": "2025-07-05",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=27",
+      "winners": [
+        0,
+        0,
+        27,
+        85,
+        1374,
+        1626
+      ],
+      "amounts": [
+        9576650,
+        336020,
+        62220,
+        7900,
+        2070,
+        1030
+      ],
+      "numbers": [
+        14,
+        20,
+        22,
+        30,
+        42
+      ],
+      "bonus_numbers": [
+        12
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=27"
+    },
+    {
+      "date": "2025-07-12",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=28",
+      "winners": [
+        1,
+        0,
+        26,
+        70,
+        1926,
+        1287
+      ],
+      "amounts": [
+        21159280,
+        742430,
+        78150,
+        11610,
+        1790,
+        1570
+      ],
+      "numbers": [
+        18,
+        26,
+        27,
+        33,
+        34
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=28"
+    },
+    {
+      "date": "2025-07-19",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=29",
+      "winners": [
+        1,
+        2,
+        49,
+        101,
+        1717,
+        1717
+      ],
+      "amounts": [
+        9227070,
+        533090,
+        33030,
+        6410,
+        1600,
+        940
+      ],
+      "numbers": [
+        1,
+        8,
+        22,
+        28,
+        32
+      ],
+      "bonus_numbers": [
+        30
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=29"
+    },
+    {
+      "date": "2025-07-26",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=30",
+      "winners": [
+        1,
+        1,
+        34,
+        77,
+        1480,
+        1407
+      ],
+      "amounts": [
+        9352380,
+        328150,
+        48250,
+        8520,
+        1880,
+        1160
+      ],
+      "numbers": [
+        1,
+        2,
+        9,
+        34,
+        36
+      ],
+      "bonus_numbers": [
+        32
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=30"
+    },
+    {
+      "date": "2025-08-02",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=31",
+      "winners": [
+        0,
+        0,
+        37,
+        65,
+        1542,
+        1374
+      ],
+      "amounts": [
+        10006880,
+        351110,
+        47440,
+        10800,
+        1930,
+        1270
+      ],
+      "numbers": [
+        1,
+        8,
+        19,
+        35,
+        38
+      ],
+      "bonus_numbers": [
+        39
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=31"
+    },
+    {
+      "date": "2025-08-09",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=32",
+      "winners": [
+        0,
+        2,
+        28,
+        110,
+        1558,
+        2027
+      ],
+      "amounts": [
+        21888040,
+        384000,
+        74440,
+        7570,
+        2270,
+        1020
+      ],
+      "numbers": [
+        16,
+        18,
+        21,
+        30,
+        45
+      ],
+      "bonus_numbers": [
+        6
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=32"
+    },
+    {
+      "date": "2025-08-16",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=33",
+      "winners": [
+        0,
+        1,
+        66,
+        78,
+        2750,
+        1541
+      ],
+      "amounts": [
+        37892020,
+        561540,
+        42540,
+        14390,
+        1730,
+        1820
+      ],
+      "numbers": [
+        13,
+        16,
+        28,
+        32,
+        33
+      ],
+      "bonus_numbers": [
+        45
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=33"
+    },
+    {
+      "date": "2025-08-23",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=34",
+      "winners": [
+        0,
+        1,
+        80,
+        99,
+        3134,
+        1982
+      ],
+      "amounts": [
+        56991820,
+        670160,
+        41880,
+        13530,
+        1810,
+        1690
+      ],
+      "numbers": [
+        12,
+        20,
+        21,
+        31,
+        39
+      ],
+      "bonus_numbers": [
+        43
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=34"
+    },
+    {
+      "date": "2025-08-30",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=35",
+      "winners": [
+        1,
+        1,
+        80,
+        204,
+        4071,
+        4063
+      ],
+      "amounts": [
+        83687080,
+        936670,
+        58540,
+        9180,
+        1950,
+        1150
+      ],
+      "numbers": [
+        4,
+        17,
+        31,
+        34,
+        36
+      ],
+      "bonus_numbers": [
+        15
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=35"
+    },
+    {
+      "date": "2025-09-06",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=36",
+      "winners": [
+        0,
+        0,
+        36,
+        86,
+        1459,
+        1786
+      ],
+      "amounts": [
+        10052440,
+        352710,
+        48980,
+        8200,
+        2050,
+        980
+      ],
+      "numbers": [
+        3,
+        8,
+        16,
+        32,
+        42
+      ],
+      "bonus_numbers": [
+        4
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=36"
+    },
+    {
+      "date": "2025-09-13",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=37",
+      "winners": [
+        0,
+        2,
+        29,
+        61,
+        1412,
+        1500
+      ],
+      "amounts": [
+        22692200,
+        398100,
+        76460,
+        14540,
+        2660,
+        1470
+      ],
+      "numbers": [
+        15,
+        34,
+        38,
+        40,
+        44
+      ],
+      "bonus_numbers": [
+        13
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=37"
+    },
+    {
+      "date": "2025-09-20",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=38",
+      "winners": [
+        0,
+        1,
+        52,
+        148,
+        2419,
+        2517
+      ],
+      "amounts": [
+        39081860,
+        575070,
+        55290,
+        7770,
+        2020,
+        1140
+      ],
+      "numbers": [
+        12,
+        17,
+        30,
+        31,
+        41
+      ],
+      "bonus_numbers": [
+        16
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=38"
+    },
+    {
+      "date": "2025-09-27",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=39",
+      "winners": [
+        0,
+        2,
+        53,
+        134,
+        2522,
+        3005
+      ],
+      "amounts": [
+        58908800,
+        347840,
+        65630,
+        10380,
+        2340,
+        1150
+      ],
+      "numbers": [
+        11,
+        19,
+        35,
+        40,
+        44
+      ],
+      "bonus_numbers": [
+        29
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=39"
+    },
+    {
+      "date": "2025-10-04",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=40",
+      "winners": [
+        0,
+        1,
+        115,
+        200,
+        4295,
+        3484
+      ],
+      "amounts": [
+        86983810,
+        985080,
+        42820,
+        9850,
+        1940,
+        1410
+      ],
+      "numbers": [
+        8,
+        16,
+        33,
+        36,
+        40
+      ],
+      "bonus_numbers": [
+        44
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=40"
+    },
+    {
+      "date": "2025-10-11",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=41",
+      "winners": [
+        0,
+        2,
+        137,
+        241,
+        5825,
+        4922
+      ],
+      "amounts": [
+        122754290,
+        627550,
+        45800,
+        10410,
+        1830,
+        1270
+      ],
+      "numbers": [
+        8,
+        14,
+        16,
+        31,
+        39
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=41"
+    },
+    {
+      "date": "2025-10-18",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=42",
+      "winners": [
+        2,
+        7,
+        199,
+        339,
+        8023,
+        6543
+      ],
+      "amounts": [
+        86233510,
+        249180,
+        43820,
+        10290,
+        1840,
+        1330
+      ],
+      "numbers": [
+        1,
+        2,
+        9,
+        12,
+        41
+      ],
+      "bonus_numbers": [
+        43
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=42"
+    },
+    {
+      "date": "2025-10-25",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=43",
+      "winners": [
+        0,
+        1,
+        59,
+        124,
+        1752,
+        1931
+      ],
+      "amounts": [
+        9787070,
+        343400,
+        29100,
+        5530,
+        1660,
+        880
+      ],
+      "numbers": [
+        12,
+        15,
+        16,
+        30,
+        31
+      ],
+      "bonus_numbers": [
+        11
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=43"
+    },
+    {
+      "date": "2025-11-01",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=44",
+      "winners": [
+        0,
+        0,
+        32,
+        58,
+        1619,
+        1278
+      ],
+      "amounts": [
+        22170870,
+        434510,
+        67890,
+        14980,
+        2280,
+        1690
+      ],
+      "numbers": [
+        3,
+        21,
+        24,
+        37,
+        45
+      ],
+      "bonus_numbers": [
+        41
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=44"
+    },
+    {
+      "date": "2025-11-08",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=45",
+      "winners": [
+        0,
+        1,
+        52,
+        106,
+        2288,
+        2473
+      ],
+      "amounts": [
+        39595040,
+        1045890,
+        58780,
+        11530,
+        2270,
+        1230
+      ],
+      "numbers": [
+        3,
+        8,
+        29,
+        35,
+        43
+      ],
+      "bonus_numbers": [
+        38
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=45"
+    },
+    {
+      "date": "2025-11-15",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=46",
+      "winners": [
+        0,
+        2,
+        51,
+        112,
+        2494,
+        2987
+      ],
+      "amounts": [
+        59764140,
+        353840,
+        69380,
+        12630,
+        2410,
+        1180
+      ],
+      "numbers": [
+        2,
+        3,
+        33,
+        34,
+        43
+      ],
+      "bonus_numbers": [
+        25
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=46"
+    },
+    {
+      "date": "2025-11-22",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=47",
+      "winners": [
+        0,
+        4,
+        87,
+        233,
+        3648,
+        3781
+      ],
+      "amounts": [
+        85195030,
+        223070,
+        51280,
+        7650,
+        2070,
+        1170
+      ],
+      "numbers": [
+        4,
+        16,
+        23,
+        33,
+        43
+      ],
+      "bonus_numbers": [
+        22
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=47"
+    },
+    {
+      "date": "2025-11-29",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=48",
+      "winners": [
+        0,
+        2,
+        151,
+        315,
+        5137,
+        5542
+      ],
+      "amounts": [
+        117044370,
+        558760,
+        37000,
+        7090,
+        1840,
+        1000
+      ],
+      "numbers": [
+        2,
+        8,
+        11,
+        31,
+        36
+      ],
+      "bonus_numbers": [
+        23
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=48"
+    },
+    {
+      "date": "2025-12-06",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=49",
+      "winners": [
+        2,
+        5,
+        185,
+        411,
+        7301,
+        6997
+      ],
+      "amounts": [
+        79305240,
+        291690,
+        39410,
+        7090,
+        1690,
+        1040
+      ],
+      "numbers": [
+        5,
+        7,
+        16,
+        26,
+        33
+      ],
+      "bonus_numbers": [
+        24
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=49"
+    },
+    {
+      "date": "2025-12-13",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=50",
+      "winners": [
+        0,
+        0,
+        29,
+        50,
+        1288,
+        1086
+      ],
+      "amounts": [
+        10853480,
+        380820,
+        65650,
+        15230,
+        2510,
+        1750
+      ],
+      "numbers": [
+        3,
+        15,
+        24,
+        34,
+        45
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=50"
+    },
+    {
+      "date": "2025-12-20",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=51",
+      "winners": [
+        0,
+        1,
+        87,
+        102,
+        2863,
+        1839
+      ],
+      "amounts": [
+        26156300,
+        917760,
+        30850,
+        10520,
+        1590,
+        1450
+      ],
+      "numbers": [
+        2,
+        12,
+        14,
+        29,
+        30
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=51"
+    },
+    {
+      "date": "2025-12-27",
+      "source": "https://games.lotto.is/urslit/lotto?year=2025&week=52",
+      "winners": [
+        0,
+        3,
+        50,
+        175,
+        2664,
+        3075
+      ],
+      "amounts": [
+        45643080,
+        227910,
+        68370,
+        7810,
+        2180,
+        1110
+      ],
+      "numbers": [
+        16,
+        26,
+        28,
+        35,
+        43
+      ],
+      "bonus_numbers": [
+        2
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2025&week=52"
+    },
+    {
+      "date": "2026-01-03",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=1",
+      "winners": [
+        0,
+        1,
+        118,
+        185,
+        4519,
+        3542
+      ],
+      "amounts": [
+        69469450,
+        836010,
+        35420,
+        9030,
+        1570,
+        1180
+      ],
+      "numbers": [
+        2,
+        6,
+        14,
+        15,
+        16
+      ],
+      "bonus_numbers": [
+        37
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=1"
+    },
+    {
+      "date": "2026-01-10",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=2",
+      "winners": [
+        0,
+        1,
+        119,
+        180,
+        4876,
+        3985
+      ],
+      "amounts": [
+        99210090,
+        1043530,
+        43840,
+        11590,
+        1810,
+        1300
+      ],
+      "numbers": [
+        13,
+        14,
+        15,
+        24,
+        39
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=2"
+    },
+    {
+      "date": "2026-01-17",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=3",
+      "winners": [
+        2,
+        4,
+        162,
+        268,
+        6726,
+        5055
+      ],
+      "amounts": [
+        67123500,
+        307340,
+        37940,
+        9170,
+        1550,
+        1210
+      ],
+      "numbers": [
+        7,
+        11,
+        23,
+        24,
+        25
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=3"
+    },
+    {
+      "date": "2026-01-24",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=4",
+      "winners": [
+        1,
+        0,
+        30,
+        44,
+        1099,
+        1221
+      ],
+      "amounts": [
+        10706130,
+        375650,
+        62600,
+        17070,
+        2900,
+        1530
+      ],
+      "numbers": [
+        13,
+        17,
+        31,
+        44,
+        45
+      ],
+      "bonus_numbers": [
+        33
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=4"
+    },
+    {
+      "date": "2026-01-31",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=5",
+      "winners": [
+        0,
+        1,
+        47,
+        103,
+        2002,
+        1678
+      ],
+      "amounts": [
+        11236660,
+        769920,
+        41940,
+        7650,
+        1670,
+        1170
+      ],
+      "numbers": [
+        12,
+        19,
+        21,
+        22,
+        39
+      ],
+      "bonus_numbers": [
+        34
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=5"
+    },
+    {
+      "date": "2026-02-07",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=6",
+      "winners": [
+        0,
+        0,
+        37,
+        82,
+        1565,
+        1862
+      ],
+      "amounts": [
+        25594370,
+        503770,
+        68070,
+        12280,
+        2730,
+        1350
+      ],
+      "numbers": [
+        3,
+        4,
+        39,
+        41,
+        43
+      ],
+      "bonus_numbers": [
+        29
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=6"
+    },
+    {
+      "date": "2026-02-14",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=7",
+      "winners": [
+        1,
+        0,
+        70,
+        118,
+        2450,
+        2584
+      ],
+      "amounts": [
+        45135980,
+        1189440,
+        48970,
+        11620,
+        2370,
+        1320
+      ],
+      "numbers": [
+        18,
+        20,
+        26,
+        41,
+        45
+      ],
+      "bonus_numbers": [
+        33
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=7"
+    },
+    {
+      "date": "2026-02-21",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=8",
+      "winners": [
+        0,
+        1,
+        54,
+        109,
+        1480,
+        1649
+      ],
+      "amounts": [
+        10580200,
+        1560680,
+        34370,
+        6810,
+        2130,
+        1120
+      ],
+      "numbers": [
+        13,
+        23,
+        32,
+        36,
+        38
+      ],
+      "bonus_numbers": [
+        33
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=8"
+    },
+    {
+      "date": "2026-02-28",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=9",
+      "winners": [
+        0,
+        2,
+        50,
+        119,
+        1893,
+        2128
+      ],
+      "amounts": [
+        24332050,
+        241260,
+        48250,
+        8100,
+        2160,
+        1130
+      ],
+      "numbers": [
+        5,
+        16,
+        20,
+        38,
+        42
+      ],
+      "bonus_numbers": [
+        18
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=9"
+    },
+    {
+      "date": "2026-03-07",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=10",
+      "winners": [
+        0,
+        3,
+        79,
+        161,
+        3115,
+        3212
+      ],
+      "amounts": [
+        43921520,
+        229110,
+        43500,
+        8530,
+        1870,
+        1060
+      ],
+      "numbers": [
+        7,
+        9,
+        27,
+        28,
+        43
+      ],
+      "bonus_numbers": [
+        30
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=10"
+    },
+    {
+      "date": "2026-03-14",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=11",
+      "winners": [
+        0,
+        1,
+        70,
+        179,
+        3246,
+        3862
+      ],
+      "amounts": [
+        67148950,
+        814990,
+        58210,
+        9100,
+        2130,
+        1050
+      ],
+      "numbers": [
+        2,
+        4,
+        6,
+        41,
+        42
+      ],
+      "bonus_numbers": [
+        7
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=11"
+    },
+    {
+      "date": "2026-03-21",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=12",
+      "winners": [
+        0,
+        2,
+        131,
+        231,
+        4502,
+        4705
+      ],
+      "amounts": [
+        96537810,
+        515590,
+        39350,
+        8920,
+        1940,
+        1090
+      ],
+      "numbers": [
+        4,
+        21,
+        31,
+        39,
+        40
+      ],
+      "bonus_numbers": [
+        3
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=12"
+    },
+    {
+      "date": "2026-03-28",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=13",
+      "winners": [
+        0,
+        2,
+        151,
+        302,
+        5957,
+        6012
+      ],
+      "amounts": [
+        131421090,
+        611980,
+        40520,
+        8100,
+        1740,
+        1010
+      ],
+      "numbers": [
+        1,
+        19,
+        21,
+        26,
+        30
+      ],
+      "bonus_numbers": [
+        29
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=13"
+    },
+    {
+      "date": "2026-04-04",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=14",
+      "winners": [
+        2,
+        1,
+        195,
+        395,
+        6924,
+        7732
+      ],
+      "amounts": [
+        88252720,
+        1581900,
+        40560,
+        8000,
+        1940,
+        1020
+      ],
+      "numbers": [
+        2,
+        9,
+        26,
+        33,
+        38
+      ],
+      "bonus_numbers": [
+        10
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=14"
+    },
+    {
+      "date": "2026-04-11",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=15",
+      "winners": [
+        0,
+        3,
+        62,
+        155,
+        2194,
+        2555
+      ],
+      "amounts": [
+        11650990,
+        136260,
+        32960,
+        5270,
+        1580,
+        800
+      ],
+      "numbers": [
+        2,
+        4,
+        8,
+        27,
+        39
+      ],
+      "bonus_numbers": [
+        10
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=15"
+    },
+    {
+      "date": "2026-04-18",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=16",
+      "winners": [
+        0,
+        2,
+        70,
+        99,
+        2109,
+        2144
+      ],
+      "amounts": [
+        25074730,
+        235500,
+        33640,
+        9510,
+        1890,
+        1090
+      ],
+      "numbers": [
+        6,
+        15,
+        26,
+        33,
+        35
+      ],
+      "bonus_numbers": [
+        28
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=16"
+    },
+    {
+      "date": "2026-04-25",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=17",
+      "winners": [
+        0,
+        0,
+        61,
+        136,
+        2530,
+        2905
+      ],
+      "amounts": [
+        42968030,
+        627830,
+        51460,
+        9230,
+        2100,
+        1080
+      ],
+      "numbers": [
+        3,
+        15,
+        17,
+        38,
+        42
+      ],
+      "bonus_numbers": [
+        8
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=17"
+    },
+    {
+      "date": "2026-05-02",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=18",
+      "winners": [
+        0,
+        3,
+        98,
+        200,
+        3814,
+        3609
+      ],
+      "amounts": [
+        66763510,
+        487580,
+        42590,
+        8340,
+        1860,
+        1150
+      ],
+      "numbers": [
+        21,
+        23,
+        33,
+        34,
+        39
+      ],
+      "bonus_numbers": [
+        24
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=18"
+    },
+    {
+      "date": "2026-05-09",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=19",
+      "winners": [
+        0,
+        2,
+        126,
+        254,
+        4789,
+        5000
+      ],
+      "amounts": [
+        96545160,
+        522480,
+        41460,
+        8220,
+        1850,
+        1040
+      ],
+      "numbers": [
+        14,
+        17,
+        18,
+        31,
+        36
+      ],
+      "bonus_numbers": [
+        28
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=19"
+    },
+    {
+      "date": "2026-05-16",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=20",
+      "winners": [
+        1,
+        0,
+        147,
+        228,
+        4954,
+        5010
+      ],
+      "amounts": [
+        130974050,
+        1208030,
+        41080,
+        10590,
+        2070,
+        1200
+      ],
+      "numbers": [
+        1,
+        9,
+        13,
+        39,
+        43
+      ],
+      "bonus_numbers": [
+        37
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=20"
+    },
+    {
+      "date": "2026-05-23",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=21",
+      "winners": [
+        1,
+        1,
+        31,
+        77,
+        1366,
+        1655
+      ],
+      "amounts": [
+        11059830,
+        1596090,
+        62590,
+        10070,
+        2410,
+        1170
+      ],
+      "numbers": [
+        6,
+        24,
+        35,
+        38,
+        41
+      ],
+      "bonus_numbers": [
+        8
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=21"
+    },
+    {
+      "date": "2026-05-30",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=22",
+      "winners": [
+        1,
+        2,
+        75,
+        179,
+        2378,
+        2414
+      ],
+      "amounts": [
+        11617020,
+        203800,
+        27170,
+        4550,
+        1450,
+        840
+      ],
+      "numbers": [
+        10,
+        18,
+        20,
+        23,
+        25
+      ],
+      "bonus_numbers": [
+        1
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=22"
+    },
+    {
+      "date": "2026-06-06",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=23",
+      "winners": [
+        0,
+        1,
+        44,
+        63,
+        1252,
+        1574
+      ],
+      "amounts": [
+        12479940,
+        437890,
+        49760,
+        13900,
+        2970,
+        1390
+      ],
+      "numbers": [
+        9,
+        31,
+        32,
+        43,
+        45
+      ],
+      "bonus_numbers": [
+        12
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=23"
+    },
+    {
+      "date": "2026-06-13",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=24",
+      "winners": [
+        1,
+        1,
+        55,
+        104,
+        2195,
+        2239
+      ],
+      "amounts": [
+        27771130,
+        536530,
+        48770,
+        10310,
+        2070,
+        1190
+      ],
+      "numbers": [
+        7,
+        19,
+        27,
+        41,
+        42
+      ],
+      "bonus_numbers": [
+        24
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=24"
+    },
+    {
+      "date": "2026-06-20",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=25",
+      "winners": [
+        0,
+        1,
+        46,
+        101,
+        2089,
+        1773
+      ],
+      "amounts": [
+        11491940,
+        403220,
+        43820,
+        7980,
+        1640,
+        1130
+      ],
+      "numbers": [
+        9,
+        14,
+        27,
+        29,
+        36
+      ],
+      "bonus_numbers": [
+        32
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=25"
+    },
+    {
+      "date": "2026-06-27",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=26",
+      "winners": [
+        0,
+        0,
+        63,
+        149,
+        2478,
+        2450
+      ],
+      "amounts": [
+        25643890,
+        496550,
+        39400,
+        6660,
+        1700,
+        1010
+      ],
+      "numbers": [
+        11,
+        13,
+        17,
+        24,
+        40
+      ],
+      "bonus_numbers": [
+        16
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=26"
+    },
+    {
+      "date": "2026-07-04",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=27",
+      "winners": [
+        0,
+        1,
+        62,
+        125,
+        2360,
+        2527
+      ],
+      "amounts": [
+        45592330,
+        1196500,
+        56440,
+        11190,
+        2520,
+        1380
+      ],
+      "numbers": [
+        21,
+        23,
+        39,
+        43,
+        45
+      ],
+      "bonus_numbers": [
+        36
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=27"
+    },
+    {
+      "date": "2026-07-11",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=28",
+      "winners": [
+        0,
+        0,
+        90,
+        205,
+        3544,
+        3862
+      ],
+      "amounts": [
+        68932420,
+        818950,
+        45490,
+        7980,
+        1960,
+        1060
+      ],
+      "numbers": [
+        10,
+        26,
+        31,
+        35,
+        36
+      ],
+      "bonus_numbers": [
+        22
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=28"
+    },
+    {
+      "date": "2026-07-18",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=29",
+      "winners": [
+        1,
+        6,
+        117,
+        192,
+        4339,
+        3572
+      ],
+      "amounts": [
+        96571010,
+        298120,
+        41440,
+        10100,
+        1890,
+        1350
+      ],
+      "numbers": [
+        9,
+        14,
+        17,
+        26,
+        45
+      ],
+      "bonus_numbers": [
+        42
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=29"
+    },
+    {
+      "date": "2026-07-25",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=30",
+      "winners": [
+        1,
+        1,
+        48,
+        82,
+        1894,
+        1820
+      ],
+      "amounts": [
+        11197260,
+        392880,
+        40920,
+        9580,
+        1760,
+        1070
+      ],
+      "numbers": [
+        13,
+        16,
+        28,
+        32,
+        40
+      ],
+      "bonus_numbers": [
+        31
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=30"
+    },
+    {
+      "date": "2026-08-01",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=31",
+      "winners": [
+        1,
+        5,
+        73,
+        148,
+        2575,
+        2801
+      ],
+      "amounts": [
+        11856600,
+        83200,
+        28490,
+        5620,
+        1370,
+        740
+      ],
+      "numbers": [
+        10,
+        11,
+        17,
+        24,
+        27
+      ],
+      "bonus_numbers": [
+        21
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=31"
+    },
+    {
+      "date": "2026-08-08",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=32",
+      "winners": [
+        2,
+        0,
+        35,
+        161,
+        1986,
+        2159
+      ],
+      "amounts": [
+        5906230,
+        414470,
+        59210,
+        5140,
+        1770,
+        950
+      ],
+      "numbers": [
+        2,
+        6,
+        16,
+        26,
+        41
+      ],
+      "bonus_numbers": [
+        11
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=32"
+    },
+    {
+      "date": "2026-08-15",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=33",
+      "winners": [
+        0,
+        1,
+        37,
+        91,
+        1575,
+        1681
+      ],
+      "amounts": [
+        11592240,
+        821210,
+        54960,
+        8930,
+        2190,
+        1200
+      ],
+      "numbers": [
+        1,
+        21,
+        37,
+        39,
+        41
+      ],
+      "bonus_numbers": [
+        27
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=33"
+    },
+    {
+      "date": "2026-08-22",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=34",
+      "winners": [
+        0,
+        3,
+        56,
+        96,
+        2278,
+        1930
+      ],
+      "amounts": [
+        25648470,
+        164400,
+        44030,
+        10270,
+        1840,
+        1270
+      ],
+      "numbers": [
+        13,
+        14,
+        16,
+        24,
+        37
+      ],
+      "bonus_numbers": [
+        39
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=34"
+    },
+    {
+      "date": "2026-08-29",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=35",
+      "winners": [
+        0,
+        3,
+        91,
+        202,
+        3514,
+        3558
+      ],
+      "amounts": [
+        43965720,
+        214230,
+        35310,
+        6360,
+        1550,
+        900
+      ],
+      "numbers": [
+        7,
+        8,
+        14,
+        28,
+        31
+      ],
+      "bonus_numbers": [
+        6
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=35"
+    },
+    {
+      "date": "2026-09-05",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=36",
+      "winners": [
+        0,
+        1,
+        77,
+        171,
+        3144,
+        3325
+      ],
+      "amounts": [
+        66817100,
+        801800,
+        52060,
+        9370,
+        2160,
+        1200
+      ],
+      "numbers": [
+        9,
+        28,
+        31,
+        39,
+        44
+      ],
+      "bonus_numbers": [
+        19
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=36"
+    },
+    {
+      "date": "2026-09-12",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=37",
+      "winners": [
+        0,
+        2,
+        115,
+        246,
+        4733,
+        4352
+      ],
+      "amounts": [
+        94970220,
+        493910,
+        42940,
+        8030,
+        1770,
+        1130
+      ],
+      "numbers": [
+        1,
+        3,
+        9,
+        19,
+        45
+      ],
+      "bonus_numbers": [
+        33
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=37"
+    },
+    {
+      "date": "2026-09-19",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=38",
+      "winners": [
+        1,
+        3,
+        135,
+        304,
+        5455,
+        5816
+      ],
+      "amounts": [
+        129235900,
+        400760,
+        44520,
+        7900,
+        1870,
+        1030
+      ],
+      "numbers": [
+        13,
+        25,
+        29,
+        33,
+        38
+      ],
+      "bonus_numbers": [
+        9
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=38"
+    },
+    {
+      "date": "2026-09-26",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=39",
+      "winners": [
+        1,
+        2,
+        44,
+        119,
+        1830,
+        1985
+      ],
+      "amounts": [
+        10817400,
+        189770,
+        43130,
+        6370,
+        1760,
+        950
+      ],
+      "numbers": [
+        7,
+        17,
+        27,
+        28,
+        41
+      ],
+      "bonus_numbers": [
+        4
+      ],
+      "data_source": "https://games.lotto.is/api/proxy/result/lotto?gameId=lotto&year=2026&week=39"
+    }
+  ]
+}

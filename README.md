@@ -153,6 +153,38 @@ minimum-prize supplements. Payout-rounding reserves returned in later draws can
 be supplied as explicit supplements for those draws. Under exhaustive coverage
 each configured tier has a winner, so no tier rolls forward from the modeled draw.
 
+## Uncertainty in competing sales
+
+Use a finite probability distribution when the competing row count is uncertain:
+
+```python
+from lottery_analyzer import SalesScenario, analyze_sales_uncertainty
+
+uncertain = analyze_sales_uncertainty(
+    [SalesScenario(400_000, 0.25), SalesScenario(500_000, 0.50), SalesScenario(600_000, 0.25)],
+    rollovers={"jackpot": 100_000_000},
+    distribution="binomial",
+)
+print(f"Weighted expected ROI: {uncertain.average.roi:.2%}")
+for scenario in uncertain.scenarios:
+    print(scenario.probability, scenario.analysis.other_rows, scenario.analysis.roi)
+```
+
+Probabilities must be positive and sum to one; omit zero-probability scenarios.
+Binomial scenarios require integer counts. Each scenario recalculates sales-funded
+prize pools, competing winners, and payout rounding before averaging. Coverage
+cost, carryovers, and explicit supplements stay fixed across scenarios.
+`average.other_rows` is the weighted mean count, but `average` payouts are not
+computed by running the model at that count. Tier pools, receipts, and omitted-tail
+error bounds are also probability-weighted.
+
+The Icelandic web form offers an optional low/base/high comparison with
+25%/50%/25% weights and an editable deviation (20% initially). These are illustrative
+assumptions, not measured probabilities or a confidence interval from lotto.is.
+Binomial scenario counts are rounded to whole rows. Custom counts and weights are
+available through the Python API. This describes sales uncertainty and conditional
+expected returns, **not the probability of realizing a profit or loss** in a draw.
+
 ## Break-even and plotting
 
 ```python
@@ -171,6 +203,27 @@ The break-even search holds competing sales fixed and returns the nonnegative-
 profit side of the boundary within 0.01 kr. of rollover by default. Payout rounding
 creates steps, so an exact zero-profit point need not exist. A bracket that does
 not span the threshold raises `ValueError`.
+
+For the original question—varying other players' added jackpot contribution
+while holding rollover fixed—use the bracket-returning API:
+
+```python
+from lottery_analyzer import break_even_contribution
+
+crossing = break_even_contribution(150_000_000, (0, 500_000_000))
+print(crossing.lower, crossing.lower_profit)
+print(crossing.upper, crossing.upper_profit)
+print(crossing.profitable_value)
+```
+
+Sign-preserving bisection handles payout jumps without assuming continuity. The
+bracket width is at most `money_tolerance` (0.01 by default), unless an evaluated
+exact zero is returned. Both sign orientations work: the profitable endpoint can
+be lower or upper. Rounded payouts may produce multiple local crossings; this
+locates one inside opposite-sign endpoints, not a unique global threshold.
+Same-sign endpoints are rejected even if there are crossings inside. A tolerance
+below floating-point resolution raises an error. Profit signs refer to the
+numerical model with its documented tail and floating-point limitations.
 
 ```python
 import matplotlib.pyplot as plt
@@ -194,6 +247,15 @@ python app.py
 
 The interface is in Icelandic, including validation messages and number formatting
 (for example, `183.263.850,00`). The Python API remains in English.
+For the default game, the form is prefilled from a **manual snapshot checked on
+28 September 2026**: lotto.is advertised a 10,000,000 kr. jackpot, and both
+rollover-eligible prizes were won on 26 September, giving zero carryover for the
+next draw. Approximately 259,909 competing rows are inferred as
+`10_000_000 / (150 * 0.45 * 0.57)`, rounded to a whole row. This assumes ordinary
+sales alone fund the advertised forecast; it is not a published sales count.
+The form displays the source links, observation date, and estimation assumptions.
+These values do not refresh automatically; update `lottery_analyzer/defaults.py`
+when using a newer draw. Custom rules do not inherit this Icelandic scenario.
 The form accepts other players' row count, eligible carryovers, and the probability
 model. It displays per-tier expected receipts and ROI. To configure a different
 game, call `lottery_analyzer.web.create_app(custom_rules)`. Templates and CSS are
@@ -206,7 +268,9 @@ They now use the current defaults and corrected per-tier calculations; historica
 numerical outputs are not preserved. `lotteryROI` retains its two-dimensional
 output even for scalar inputs. `breakEven` still searches for an **added jackpot
 contribution**, whereas the new `break_even_rollover` searches for a **carryover**.
-The legacy solver returns an approximate crossing when payouts are rounded.
+The legacy solver now returns an evaluated **nonnegative-profit endpoint**, not
+an assumed exact root. Use `breakEven(lastWin, low, high, full_output=True)` for
+the complete `BreakEvenResult`; `money_tolerance=` controls the bracket width.
 
 | Module | Responsibility |
 | --- | --- |
@@ -214,10 +278,21 @@ The legacy solver returns an approximate crossing when payouts are rounded.
 | `probability.py` | Prize-sharing distributions and payout expectations |
 | `model.py` | Per-tier pools, structured results, sales conversion |
 | `analysis.py` | Scenario grids and break-even thresholds |
+| `uncertainty.py` | Weighted sales scenarios and conditional results |
 | `plotting.py` | Optional Matplotlib presentation |
 | `web.py` | Optional Flask app factory |
 
 ## Development
+
+Historical payout checks and their limitations are documented in
+[the validation report](docs/HISTORICAL_VALIDATION.md). Reproduce them with:
+
+```sh
+python -m lottery_analyzer.historical data/historical_draws.json
+```
+
+The dated fixtures cover five consecutive draws under the current rules. They
+check prize-pool accounting and rounding, not the statistical winner model.
 
 ```sh
 pytest
@@ -230,3 +305,39 @@ Tests include exhaustive competing-ticket enumeration for a small game, no-sales
 boundaries, high-competition jackpot expectations, rounding boundaries, carryovers,
 break-even thresholds, compatibility wrappers, plots, and Flask form requests.
 CI runs the suite on Python 3.11 and 3.14.
+
+### Winner-count diagnostics
+
+The [71-draw report](docs/WINNER_DIAGNOSTICS.md) covers every weekly draw from
+24 May 2025 through 26 September 2026. All prize tables reconcile under the
+historical accounting assumptions. Lower-tier winner counts show substantially
+more variation than the independent uniform-row model predicts. This is evidence
+that its count uncertainty is too narrow for these observations; it does not
+identify the cause or establish a replacement distribution.
+
+Each tier is checked using sales inferred without its own count or payout.
+Sales remain inferred, and other tiers are dependent. The report is descriptive,
+not an independent sales validation or a forecast backtest. Model defaults have
+not been fitted to this sample.
+
+Reproduce the diagnostics offline:
+
+```sh
+python -m lottery_analyzer.diagnostics data/current_rules_draws.json \
+  --json-output data/winner_diagnostics.json --report docs/WINNER_DIAGNOSTICS.md
+```
+
+Use `--distribution poisson` to compare the Poisson approximation. The default
+is binomial; `--coverage` controls the reference count envelope.
+
+Refresh the dated observations explicitly (requires internet access):
+
+```sh
+python scripts/collect_history.py --end 2026-09-26 --output data/current_rules_draws.json
+```
+
+The collector uses the anonymous public results endpoint used by lotto.is's
+results page. It verifies returned dates and category names and writes the
+fixture only after every requested draw succeeds. Each observation retains both
+the result-page URL and data-source URL. The original five manually checked
+observations remain a separate regression fixture.

@@ -5,10 +5,25 @@
 <p>{{ rules.combinations | is_number }} raðir á {{ rules.row_price | is_number(2) }}
   hver kosta samtals <strong>{{ rules.coverage_cost | is_number(2) }}</strong>.</p>
 {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+{% if lotto_snapshot %}
+<aside class="note">
+  <p>Sjálfgefin gildi miðast við upplýsingar af lotto.is, skoðaðar
+    {{ lotto_snapshot.checked_on.strftime('%d.%m.%Y') }}.
+    <a href="{{ lotto_snapshot.forecast_url }}">Auglýstur pottur</a> er
+    {{ lotto_snapshot.advertised_jackpot | is_number }} kr.
+    Samkvæmt <a href="{{ lotto_snapshot.results_url }}">úrslitum frá
+    {{ lotto_snapshot.previous_draw.strftime('%d.%m.%Y') }}</a> gengu bæði fyrsti vinningur og
+    bónusvinningur út, svo engin upphæð færist yfir úr þeim drætti.</p>
+  <p>Áætlaður fjöldi annarra raða er {{ lotto_snapshot.estimated_other_rows | is_number }}.
+    Hann er reiknaður út frá auglýstum potti, verði raðar og hlutfalli sölu sem rennur í fyrsta
+    vinning, að því gefnu að ekkert viðbótarfé sé í pottinum. Þetta er ekki birt sölutala.
+    Gildin uppfærast ekki sjálfkrafa og þú getur breytt þeim hér fyrir neðan.</p>
+</aside>
+{% endif %}
 <form action="{{ url_for('calculate') }}" method="post">
   <label for="other_rows">Fjöldi raða sem aðrir spilarar kaupa</label>
   <input id="other_rows" name="other_rows" type="number" min="0" step="any" required
-    value="{{ values.get('other_rows', '500000') }}">
+    value="{{ values.get('other_rows', '') }}">
   {% for tier in rules.tiers if tier.can_roll_over %}
   <label for="rollover_{{ tier.key }}">{{ tier.label | is_label }} — yfirfærð vinningsupphæð</label>
   <input id="rollover_{{ tier.key }}" name="rollover_{{ tier.key }}" type="number"
@@ -21,6 +36,18 @@
     <option value="binomial" {% if values.get('distribution') == 'binomial' %}selected{% endif %}>
       Tvíkostadreifing (fjöldi raða verður að vera heiltala)</option>
   </select>
+  <fieldset>
+    <legend>Óvissa um sölu</legend>
+    <label><input type="checkbox" name="sales_uncertainty"
+      {% if values.get('sales_uncertainty') == 'on' %}checked{% endif %}>
+      Reikna þrjár sviðsmyndir um sölu</label>
+    <label for="sales_spread">Frávik frá áætluðum fjölda raða (%)</label>
+    <input id="sales_spread" name="sales_spread" type="number" min="0" max="100"
+      step="any" value="{{ values.get('sales_spread', '20') }}">
+    <p>Minni sala fær 25 % vægi, grunnáætlun 50 % og meiri sala 25 %.
+      Þetta eru forsendur til samanburðar, ekki mældar líkur eða öryggisbil frá lotto.is.
+      Með tvíkostadreifingu er fjöldi raða námundaður að næstu heiltölu.</p>
+  </fieldset>
   <p>Yfirfærð upphæð er vinningspottur frá fyrri útdrætti þar sem engin röð vann í viðkomandi flokki.
     Þínum nýju röðum er sjálfkrafa bætt við útreikninginn.</p>
   <button type="submit">Reikna vænta ávöxtun</button>

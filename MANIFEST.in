@@ -1,0 +1,6 @@
+include data/historical_draws.json
+include docs/HISTORICAL_VALIDATION.md
+include data/current_rules_draws.json
+include data/winner_diagnostics.json
+include docs/WINNER_DIAGNOSTICS.md
+include scripts/collect_history.py

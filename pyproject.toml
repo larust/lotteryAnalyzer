@@ -26,6 +26,9 @@ lottery_analyzer = ["templates/*.html", "static/*.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# Tests also import the repository-only historical data collector.
+# Keep console-script and `python -m pytest` invocation behavior consistent.
+pythonpath = ["."]
 
 [tool.ruff]
 target-version = "py311"

@@ -7,6 +7,8 @@ from typing import Literal
 import numpy as np
 from scipy.stats import binom, poisson
 
+from .payouts import pool_rounding_units
+
 Distribution = Literal["poisson", "binomial"]
 DEFAULT_TAIL_PROBABILITY = 1e-12
 MAX_SUPPORT_SIZE = 1_000_000
@@ -62,9 +64,7 @@ def expected_payout(
     if rounding_unit:
         # Integer division avoids binary floating-point rounding down an exact
         # monetary boundary (e.g. an exact 10 kr. payout becoming zero).
-        pool_numerator, pool_denominator = pool.as_integer_ratio()
-        unit_numerator, unit_denominator = Decimal(str(rounding_unit)).as_integer_ratio()
-        units = (pool_numerator * unit_denominator) // (pool_denominator * unit_numerator)
+        units = pool_rounding_units(pool, rounding_unit)
         row_units = np.fromiter((units // (own_winners + int(k)) for k in winners), dtype=float)
         receipts = row_units * rounding_unit * own_winners
     else:

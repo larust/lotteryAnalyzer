@@ -6,6 +6,7 @@ import pytest
 matplotlib.use("Agg")
 
 from lottery_analyzer import ICELANDIC_LOTTO  # noqa: E402
+from lottery_analyzer.defaults import LOTTO_IS_SNAPSHOT  # noqa: E402
 from lottery_analyzer.plotting import plot_roi  # noqa: E402
 from lottery_analyzer.web import create_app  # noqa: E402
 
@@ -60,6 +61,23 @@ def test_app_factory_accepts_custom_rules():
     page = create_app(rules).test_client().get("/")
     assert b"Custom lottery" in page.data
     assert b"244.351.800,00" in page.data
+    assert b"www.lotto.is" not in page.data
+    assert b'value="259909"' not in page.data
+
+
+def test_sourced_defaults_distinguish_forecast_from_carryover():
+    snapshot = LOTTO_IS_SNAPSHOT
+    assert snapshot.estimated_other_rows == 259_909
+    values = snapshot.form_values()
+    assert values["rollover_jackpot"] == values["rollover_four_bonus"] == "0"
+    client = create_app().test_client()
+    text = client.get("/").get_data(as_text=True)
+    assert 'value="259909"' in text
+    assert "28.09.2026" in text
+    assert "10.000.000 kr." in text
+    assert "Þetta er ekki birt sölutala" in text
+    assert snapshot.forecast_url in text and snapshot.results_url in text
+    assert client.post("/calculate", data=values).status_code == 200
 
 
 def test_validation_is_icelandic_and_preserves_entered_values():
@@ -70,6 +88,34 @@ def test_validation_is_icelandic_and_preserves_entered_values():
     assert "Fjöldi raða verður að vera heiltala" in text
     assert 'value="1.5"' in text
     assert 'value="binomial" selected' in text
+
+
+def test_uncertain_sales_form_shows_weighted_scenarios():
+    client = create_app().test_client()
+    response = client.post(
+        "/calculate",
+        data={
+            "other_rows": "100",
+            "sales_uncertainty": "on",
+            "sales_spread": "20",
+            "distribution": "binomial",
+        },
+    )
+    text = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert "80,00" in text and "120,00" in text
+    assert "Veginn meðalfjöldi" in text
+    assert "ekki líkur á hagnaði eða tapi" in text
+    invalid = client.post(
+        "/calculate",
+        data={
+            "other_rows": "100",
+            "sales_uncertainty": "on",
+            "sales_spread": "101",
+        },
+    )
+    assert invalid.status_code == 400
+    assert "má ekki vera meira en 100" in invalid.get_data(as_text=True)
 
 
 def test_plot_returns_reusable_axes_and_correct_labels(tmp_path):
