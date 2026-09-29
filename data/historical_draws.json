@@ -1,0 +1,38 @@
+{
+  "observed_on": "2026-09-28",
+  "rules_effective_from": "2025-05-18",
+  "provenance": "Manually transcribed from the rendered official lotto.is results table, using its week selector. Rows are winning rows, not necessarily individual players. For zero winners the amount column is the displayed unwon pool, not a payout.",
+  "tier_order": ["jackpot", "four_bonus", "four", "three_bonus", "three", "two_bonus"],
+  "draws": [
+    {
+      "date": "2026-08-29",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=35",
+      "winners": [0, 3, 91, 202, 3514, 3558],
+      "amounts": [43965720, 214230, 35310, 6360, 1550, 900]
+    },
+    {
+      "date": "2026-09-05",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=36",
+      "winners": [0, 1, 77, 171, 3144, 3325],
+      "amounts": [66817100, 801800, 52060, 9370, 2160, 1200]
+    },
+    {
+      "date": "2026-09-12",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=37",
+      "winners": [0, 2, 115, 246, 4733, 4352],
+      "amounts": [94970220, 493910, 42940, 8030, 1770, 1130]
+    },
+    {
+      "date": "2026-09-19",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=38",
+      "winners": [1, 3, 135, 304, 5455, 5816],
+      "amounts": [129235900, 400760, 44520, 7900, 1870, 1030]
+    },
+    {
+      "date": "2026-09-26",
+      "source": "https://games.lotto.is/urslit/lotto?year=2026&week=39",
+      "winners": [1, 2, 44, 119, 1830, 1985],
+      "amounts": [10817400, 189770, 43130, 6370, 1760, 950]
+    }
+  ]
+}

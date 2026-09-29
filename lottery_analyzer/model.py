@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from math import isfinite
 
+from .payouts import tier_pool
 from .probability import DEFAULT_TAIL_PROBABILITY, Distribution, expected_payout
 from .rules import ICELANDIC_LOTTO, LotteryRules, nonnegative
 
@@ -102,10 +103,12 @@ def analyze(
         raise ValueError("Total prize money is too large for numerical evaluation.")
     results = []
     for tier in rules.tiers:
-        pool = (
-            prize_pool * Decimal(str(tier.pool_fraction))
-            + Decimal(str(carried.get(tier.key, 0)))
-            + Decimal(str(additions.get(tier.key, 0)))
+        pool = tier_pool(
+            Decimal(rules.combinations) + Decimal(str(other_rows)),
+            rules,
+            tier,
+            Decimal(str(carried.get(tier.key, 0))),
+            Decimal(str(additions.get(tier.key, 0))),
         )
         if not isfinite(float(pool)):
             raise ValueError("Prize pool is too large for numerical evaluation.")

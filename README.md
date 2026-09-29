@@ -284,6 +284,16 @@ the complete `BreakEvenResult`; `money_tolerance=` controls the bracket width.
 
 ## Development
 
+Historical payout checks and their limitations are documented in
+[the validation report](docs/HISTORICAL_VALIDATION.md). Reproduce them with:
+
+```sh
+python -m lottery_analyzer.historical data/historical_draws.json
+```
+
+The dated fixtures cover five consecutive draws under the current rules. They
+check prize-pool accounting and rounding, not the statistical winner model.
+
 ```sh
 pytest
 ruff check .
@@ -295,3 +305,39 @@ Tests include exhaustive competing-ticket enumeration for a small game, no-sales
 boundaries, high-competition jackpot expectations, rounding boundaries, carryovers,
 break-even thresholds, compatibility wrappers, plots, and Flask form requests.
 CI runs the suite on Python 3.11 and 3.14.
+
+### Winner-count diagnostics
+
+The [71-draw report](docs/WINNER_DIAGNOSTICS.md) covers every weekly draw from
+24 May 2025 through 26 September 2026. All prize tables reconcile under the
+historical accounting assumptions. Lower-tier winner counts show substantially
+more variation than the independent uniform-row model predicts. This is evidence
+that its count uncertainty is too narrow for these observations; it does not
+identify the cause or establish a replacement distribution.
+
+Each tier is checked using sales inferred without its own count or payout.
+Sales remain inferred, and other tiers are dependent. The report is descriptive,
+not an independent sales validation or a forecast backtest. Model defaults have
+not been fitted to this sample.
+
+Reproduce the diagnostics offline:
+
+```sh
+python -m lottery_analyzer.diagnostics data/current_rules_draws.json \
+  --json-output data/winner_diagnostics.json --report docs/WINNER_DIAGNOSTICS.md
+```
+
+Use `--distribution poisson` to compare the Poisson approximation. The default
+is binomial; `--coverage` controls the reference count envelope.
+
+Refresh the dated observations explicitly (requires internet access):
+
+```sh
+python scripts/collect_history.py --end 2026-09-26 --output data/current_rules_draws.json
+```
+
+The collector uses the anonymous public results endpoint used by lotto.is's
+results page. It verifies returned dates and category names and writes the
+fixture only after every requested draw succeeds. Each observation retains both
+the result-page URL and data-source URL. The original five manually checked
+observations remain a separate regression fixture.
