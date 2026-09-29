@@ -118,11 +118,15 @@ For code changes, run relevant tests while iterating and these checks before
 handing off:
 
 ```sh
-.venv/bin/python -m pytest -q
+.venv/bin/pytest -q
 .venv/bin/ruff check .
 .venv/bin/ruff format --check .
 git diff --check
 ```
+
+CI invokes the `pytest` console script. When changing test imports or pytest
+configuration, check both invocation forms; module invocation alone can mask
+missing repository paths.
 
 Run `.venv/bin/python -m build` for packaging/dependency changes and before
 shipping a release. CI also runs it. Keep templates and static assets in wheels;
